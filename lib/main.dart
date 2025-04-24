@@ -1,8 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:task10/services/news_service.dart';
 
 import 'Screens/home_screen.dart';
 
 void main() {
+  //NewsService(Dio()).getNews();
   runApp(const MyApp());
 }
 

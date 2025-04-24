@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task10/Screens/category_screen.dart';
 
 import '../model/category_model.dart';
 
@@ -9,27 +10,32 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        right: 16,
-      ),
-      child: Container(
-        height: 85,
-        width: 150,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.black54,
-          image: DecorationImage(
-            image: AssetImage(categoryModel.image),
-          ),
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context,).push(MaterialPageRoute(builder: (context)=>CategoryScreen(category: categoryModel.name,)));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(
+          right: 16,
         ),
-        child: Center(
-          child: Text(
-            categoryModel.categoryName,
-            style: TextStyle(
-                color: Colors.blue[900],
-                fontSize: 22,
-                fontWeight: FontWeight.bold
+        child: Container(
+          height: 85,
+          width: 150,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.black54,
+            image: DecorationImage(
+              image: AssetImage(categoryModel.imageAsset),
+            ),
+          ),
+          child: Center(
+            child: Text(
+              categoryModel.name,
+              style: TextStyle(
+                  color: Colors.blue[900],
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold
+              ),
             ),
           ),
         ),

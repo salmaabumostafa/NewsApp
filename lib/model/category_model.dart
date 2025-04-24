@@ -1,6 +1,11 @@
 class CategoryModel {
-  final String image ;
-  final String categoryName ;
+  final String name;
+  final String imageAsset;
+  final String apiQuery;
 
-  const CategoryModel({required this.image, required this.categoryName});
-}
+  CategoryModel({
+  required this.name,
+  required this.imageAsset,
+  required this.apiQuery,
+  });
+  }

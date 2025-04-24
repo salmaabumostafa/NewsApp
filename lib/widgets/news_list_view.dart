@@ -1,24 +1,28 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:task10/model/article.dart';
+import 'package:task10/services/news_service.dart';
 
 import 'news_card.dart';
 
 class NewsListView extends StatelessWidget {
-  const NewsListView({Key? key}) : super(key: key);
+
+  List<Article> articles = [];
+
+  NewsListView({Key?key,required this.articles}):super(key:key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (context , index){
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+      childCount: articles.length, (context , index){
         return Padding(
           padding: const EdgeInsets.only(
-            bottom: 25,
+            bottom: 25,),
+          child: NewsCard(articleModel: articles[index],
           ),
-          child: NewsCard(),
         );
-      },
+      },),
     );
   }
 }
